@@ -4,7 +4,7 @@ import { getServiceCategories, ServiceCategory } from '@/services/serviceCategor
 
 const Index = () => {
   const [categories, setCategories] = useState<ServiceCategory[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
