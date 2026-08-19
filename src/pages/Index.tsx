@@ -1,3 +1,4 @@
+character in Settings > API text">
 import { MadeWithDyad } from '@/components/made-with-dyad'
 import { useEffect, useState } from 'react'
 import { getServiceCategories, ServiceCategory } from '@/services/serviceCategoryService'
@@ -138,7 +139,6 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Decorative wave */}
         <div className="absolute bottom-0 left-0 w-full">
           <svg className="w-full h-12 text-navy-800" viewBox="0 0 1440 320" preserveAspectRatio="none">
             <path d="M0,160L48,171.2C96,182,192,203,288,208C384,213,480,203,576,181.3C672,160,768,123,864,106.7C960,90,1056,90.7,1152,90.7C1248,90.7,1344,90.7,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -146,7 +146,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Service Area Messaging */}
       <section className="bg-navy-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -160,7 +159,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Popular Service Categories */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -191,7 +189,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Common Electrical Problems */}
       <section className="bg-navy-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-10">
@@ -238,7 +235,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -276,7 +272,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Transparent Pricing */}
       <section className="bg-navy-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -314,7 +309,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -361,7 +355,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Electrician Partner CTA */}
       <section className="bg-gradient-to-r from-navy-900 to-navy-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">
@@ -378,7 +371,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -422,7 +414,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-navy-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
