@@ -4,7 +4,335 @@ import { getServiceCategories, ServiceCategory } from '@/services/serviceCategor
 
 const Index = () => {
   const [categories, setCategories] = useState<ServiceCategory[]>([])
-  const [loading, [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      try {
+        setLoading(true)
+        const data = await getServiceCategories()
+        setCategories(data)
+        setError(null)
+      } catch (err) {
+        console.error('Failed to load categories:', err)
+        if (err instanceof Error && err.message.includes('Supabase credentials missing')) {
+          setError('Supabase configuration missing. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.')
+        } else {
+          setError('Failed to load service categories. Please check your connection and Supabase configuration.')
+        }
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadCategories()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="inline-block animate-pulse">
+            <svg className="h-8 w-8 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+          </div>
+          <p className="mt-4 text-gray-500">Loading BijliBhai services...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Something went wrong</h2>
+          <p className="text-gray-600">{error}</p>
+          {!error.includes('Supabase configuration missing') && (
+            <button 
+              onClick={() => window.location.reload()}
+              className="mt-6 px-4 py-2 bg-navy-600 text-white rounded-md hover:bg-navy-700 transition-colors"
+            >
+              Try Again
+            </button>
+          )}
+          {error.includes('Supabase configuration missing') && (
+            <div className="mt-6 text-left max-w-xl mx-auto">
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">To fix this:</h3>
+              <ol className="list-decimal list-inside text-navy-600 space-y-2">
+                <li>Create a Supabase project at <a href="https://supabase.com" className="text-navy-600 underline hover:text-navy-800" target="_blank" rel="noopener noreferrer">supabase.com</a></li>
+                <li>Get your project URL and anon key from Settings > API</li>
+                <li>Create a .env file in the project root with:</li>
+                <div className="mt-2 p-3 bg-navy-50 rounded-lg font-mono text-sm">
+                  VITE_SUPABASE_URL=your_project_url<br />
+                  VITE_SUPABASE_ANON_KEY=your_anon_key
+                </div>
+                <li>Run the database schema from src/database/schema.sql in your Supabase SQL editor</li>
+              </ol>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-navy-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <span className="text-xl font-bold flex items-center">
+                  <span className="mr-2">⚡</span>
+                  BijliBhai
+                </span>
+              </div>
+              <div className="hidden md:block">
+                <div className="ml-10 flex items-baseline space-x-4">
+                  <a href="#" className="hover:text-navy-200 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                  <a href="#" className="hover:text-navy-200 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                  <a href="#" className="hover:text-navy-200 px-3 py-2 rounded-md text-sm font-medium">How It Works</a>
+                  <a href="#" className="hover:text-navy-200 px-3 py-2 rounded-md text-sm font-medium">Electricians</a>
+                  <a href="#" className="hover:text-navy-200 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center md:hidden">
+              <button className="p-2 rounded-md hover:bg-navy-800">
+                <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative bg-navy-900 text-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold mb-6">
+            Bijli ka kaam?<br className="hidden md:inline" />Bhai ko bulao.
+          </h1>
+          <p className="text-xl mb-8">
+            Verified local electricians, clear pricing aur fast doorstep service.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              className="flex-1 px-6 py-3 bg-yellow-400 text-navy-900 font-semibold rounded-md hover:bg-yellow-300 transition-colors flex items-center justify-center gap-2"
+            >
+              <span>⚡</span> Electrician Bulayein
+            </button>
+            <button 
+              className="flex-1 px-6 py-3 border border-navy-200 text-navy-200 hover:bg-navy-50 flex items-center justify-center gap-2"
+            >
+              <span>💬</span> WhatsApp Karein
+            </button>
+          </div>
+        </div>
+        
+        {/* Decorative wave */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <svg className="w-full h-12 text-navy-800" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path d="M0,160L48,171.2C96,182,192,203,288,208C384,213,480,203,576,181.3C672,160,768,123,864,106.7C960,90,1056,90.7,1152,90.7C1248,90.7,1344,90.7,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+        </div>
+      </section>
+
+      {/* Service Area Messaging */}
+      <section className="bg-navy-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-navy-900 mb-4">Serving Kanpur with Pride</h2>
+            <p className="text-navy-600">
+              Our verified electricians are available across all sectors of Kanpur including 
+              Civil Lines, Kidwai Nagar, Barra, Rajajipuram, and more. 
+              Enter your pincode to check service availability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Service Categories */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
+            Popular Electrical Services
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((category) => (
+              <div 
+                key={category.id} 
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-navy-50"
+              >
+                <div className="p-6">
+                  <div className="flex items-center justify-center h-12 mb-4">
+                    {category.icon ? (
+                      <span className="text-navy-600 text-2xl">{category.icon}</span>
+                    ) : (
+                      <span className="text-navy-600 text-2xl">⚡</span>
+                    )}
+                  </div>
+                  <h3 className="text-lg font-semibold text-navy-900 mb-2">{category.name}</h3>
+                  <p className="text-navy-500 text-sm line-clamp-2">
+                    {category.description || 'Professional electrical services'}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Common Electrical Problems */}
+      <section className="bg-navy-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-navy-900 mb-10">
+            Common Electrical Problems We Solve
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="bg-white rounded-xl shadow-sm p-6 text-center border border-navy-50">
+              <div className="h-10 w-10 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-3">
+                ⚡
+              </div>
+              <h3 className="font-semibold text-navy-900 mb-2">MCB Tripping</h3>
+              <p className="text-navy-500 text-sm">
+                Frequent circuit breaker trips indicating overload or short circuit
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6 text-center border border-navy-50">
+              <div className="h-10 w-10 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-3">
+                💡
+              </div>
+              <h3 className="font-semibold text-navy-900 mb-2">Flickering Lights</h3>
+              <p className="text-navy-500 text-sm">
+                Lights dimming or flickering due to loose connections or voltage issues
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6 text-center border border-navy-50">
+              <div className="h-10 w-10 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-3">
+                🔌
+              </div>
+              <h3 className="font-semibold text-navy-900 mb-2">Dead Outlets</h3>
+              <p className="text-navy-500 text-sm">
+                Electrical outlets not working due to wiring issues or tripped GFCI
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6 text-center border border-navy-50">
+              <div className="h-10 w-10 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-3">
+                🌡️
+              </div>
+              <h3 className="font-semibold text-navy-900 mb-2">Overheating Switches</h3>
+              <p className="text-navy-500 text-sm">
+                Switches or faceplates hot to touch indicating dangerous wiring
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
+            How BijliBhai Works
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-3">
+            <div className="text-center">
+              <div className="h-12 w-12 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-4">
+                1
+              </div>
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">Describe Your Problem</h3>
+              <p className="text-navy-500">
+                Tell us what electrical issue you're facing - from simple repairs to complex installations
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-12 w-12 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-4">
+                2
+              </div>
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">Get Instant Quote</h3>
+              <p className="text-navy-500">
+                Receive transparent pricing upfront - no hidden charges, no surprises
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-12 w-12 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-4">
+                3
+              </div>
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">Expert at Your Door</h3>
+              <p className="text-navy-500">
+                Verified electrician arrives on time, fixes the issue, and ensures safety
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transparent Pricing */}
+      <section className="bg-navy-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
+            Transparent Pricing You Can Trust
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-navy-50">
+              <h3 className="text-xl font-semibold text-navy-900 mb-4">Fixed Price</h3>
+              <p className="text-navy-600">
+                Most common services like fan installation, light fitting, or switch replacement have fixed prices you see before booking.
+              </p>
+              <div className="mt-4 p-3 bg-navy-50 rounded-lg">
+                <span className="font-medium">Example:</span> Ceiling Fan Installation - ₹799 (inclusive of material & visit fee)
+              </div>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-navy-50">
+              <h3 className="text-xl font-semibold text-navy-900 mb-4">Starting From Price</h3>
+              <p className="text-navy-600">
+                For services where complexity varies (like DB upgrades or rewiring), we provide a starting price with final quote after inspection.
+              </p>
+              <div className="mt-4 p-3 bg-navy-50 rounded-lg">
+                <span className="font-medium">Example:</span> DB Upgrade - Starting from ₹2,999 (final price after site check)
+              </div>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-navy-50">
+              <h3 className="text-xl font-semibold text-navy-900 mb-4">Inspection Required</h3>
+              <p className="text-navy-600">
+                For complex electrical issues, we charge a nominal inspection fee that's adjusted against the final repair cost.
+              </p>
+              <div className="mt-4 p-3 bg-navy-50 rounded-lg">
+                <span className="font-medium">Example:</span> Electrical Inspection - ₹1,499 (adjusted in final bill)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
+            Why Choose BijliBhai?
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="text-center">
+              <div className="h-12 w-12 flex items-center justify-center bg-navy-100 text-navy-66  waybi.jsonway</scriptui.lladian
+</
+
+<the-coreindex</_version</ary<dyad-write path="src/pages/Index.tsx" description="Fixing syntax error in useState hooks - line 7 had double destructuring">
+import { MadeWithDyad } from '@/components/made-with-dyad'
+import { useEffect, useState } from 'react'
+import { getServiceCategories, ServiceCategory } from '@/services/serviceCategoryService'
+
+const Index = () => {
+  const [categories, setCategories] = useState<ServiceCategory[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
