@@ -16,7 +16,6 @@ const Index = () => {
         setError(null)
       } catch (err) {
         console.error('Failed to load categories:', err)
-        // Provide more specific error message
         if (err instanceof Error && err.message.includes('Supabase credentials missing')) {
           setError('Supabase configuration missing. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.')
         } else {
@@ -104,7 +103,6 @@ const Index = () => {
               </div>
             </div>
             <div className="flex items-center md:hidden">
-              {/* Mobile menu button would go here */}
               <button className="p-2 rounded-md hover:bg-navy-800">
                 <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="3" y1="12" x2="21" y2="12"></line>
