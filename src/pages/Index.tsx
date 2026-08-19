@@ -1,4 +1,3 @@
-character in text content">
 import { MadeWithDyad } from '@/components/made-with-dyad'
 import { useEffect, useState } from 'react'
 import { getServiceCategories, ServiceCategory } from '@/services/serviceCategoryService'
