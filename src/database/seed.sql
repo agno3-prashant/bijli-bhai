@@ -1,0 +1,2 @@
+-- This file contains the same data as schema.sql for reference
+-- In production, you would run the schema.sql which includes the inserts
