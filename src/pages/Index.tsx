@@ -16,7 +16,12 @@ const Index = () => {
         setError(null)
       } catch (err) {
         console.error('Failed to load categories:', err)
-        setError('Failed to load service categories. Please check your connection.')
+        // Provide more specific error message
+        if (err instanceof Error && err.message.includes('Supabase credentials missing')) {
+          setError('Supabase configuration missing. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.')
+        } else {
+          setError('Failed to load service categories. Please check your connection and Supabase configuration.')
+        }
       } finally {
         setLoading(false)
       }
@@ -47,12 +52,29 @@ const Index = () => {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-red-600 mb-4">Something went wrong</h2>
           <p className="text-gray-600">{error}</p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="mt-6 px-4 py-2 bg-navy-600 text-white rounded-md hover:bg-navy-700 transition-colors"
-          >
-            Try Again
-          </button>
+          {!error.includes('Supabase configuration missing') && (
+            <button 
+              onClick={() => window.location.reload()}
+              className="mt-6 px-4 py-2 bg-navy-600 text-white rounded-md hover:bg-navy-700 transition-colors"
+            >
+              Try Again
+            </button>
+          )}
+          {error.includes('Supabase configuration missing') && (
+            <div className="mt-6 text-left max-w-xl mx-auto">
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">To fix this:</h3>
+              <ol className="list-decimal list-inside text-navy-600 space-y-2">
+                <li>Create a Supabase project at <a href="https://supabase.com" className="text-navy-600 underline hover:text-navy-800" target="_blank" rel="noopener noreferrer">supabase.com</a></li>
+                <li>Get your project URL and anon key from Settings > API</li>
+                <li>Create a .env file in the project root with:</li>
+                <div className="mt-2 p-3 bg-navy-50 rounded-lg font-mono text-sm">
+                  VITE_SUPABASE_URL=your_project_url<br />
+                  VITE_SUPABASE_ANON_KEY=your_anon_key
+                </div>
+                <li>Run the database schema from src/database/schema.sql in your Supabase SQL editor</li>
+              </ol>
+            </div>
+          )}
         </div>
       </div>
     )
@@ -111,7 +133,7 @@ const Index = () => {
               <span>⚡</span> Electrician Bulayein
             </button>
             <button 
-              className="flex-1 px-6 py-3 border border-navy-200 text-navy-200 hover:bg-nanny-50 flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-3 border border-navy-200 text-navy-200 hover:bg-navy-50 flex items-center justify-center gap-2"
             >
               <span>💬</span> WhatsApp Karein
             </button>
