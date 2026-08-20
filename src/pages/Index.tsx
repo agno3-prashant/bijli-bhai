@@ -81,9 +81,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Header */}
       <header className="bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <span className="text-xl font-bold flex items-center">
@@ -114,21 +115,65 @@ const Index = () => {
         </div>
       </header>
 
+      {/* Hero Section */}
       <section className="relative bg-navy-900 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold mb-6">
-            Bijli ka kaam?<br className="hidden md:inline" />Bhai ko bulao.
-          </h1>
-          <p className="text-xl mb-8">
-            Verified local electricians, clear pricing aur fast doorstep service.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="flex-1 px-6 py-3 bg-yellow-400 text-navy-900 font-semibold rounded-md hover:bg-yellow-300 transition-colors flex items-center justify-center gap-2">
-              <span>⚡</span> Electrician Bulayein
-            </button>
-            <button className="flex-1 px-6 py-3 border border-navy-200 text-navy-200 hover:bg-navy-50 flex items-center justify-center gap-2">
-              <span>💬</span> WhatsApp Karein
-            </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start lg:items-center">
+            {/* Left Side - Content */}
+            <div className="space-y-6">
+              <p className="text-sm text-navy-200 uppercase tracking-wider">
+                Electrician service in Kanpur
+              </p>
+              <h1 className="text-4xl font-bold text-white mb-4 lg:text-5xl">
+                Bijli ka kaam?<br className="hidden lg:inline" />
+                <span className="block lg:inline-block bg-yellow-400 text-navy-900 px-2 py-1 rounded">
+                  Bhai ko bulao.
+                </span>
+              </h1>
+              <p className="text-lg text-navy-200 max-w-xl">
+                Verified local electricians, clear pricing aur fast doorstep service.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button className="flex-1 px-6 py-3 bg-yellow-400 text-navy-900 font-semibold rounded-md hover:bg-yellow-300 transition-colors flex items-center justify-center gap-2 sm:px-8">
+                  <span>⚡</span> Electrician Bulayein
+                </button>
+                <button className="flex-1 px-6 py-3 border border-navy-200 text-navy-200 hover:bg-navy-50 flex items-center justify-center gap-2 sm:px-8">
+                  <span>💬</span> WhatsApp Karein
+                </button>
+              </div>
+              <div className="flex flex-wrap gap-4 text-sm text-navy-300">
+                <div className="flex items-center bg-navy-800/50 px-3 py-1 rounded">
+                  <span className="text-navy-100">✓</span>
+                  <span className="ml-1">Verified professionals</span>
+                </div>
+                <div className="flex items-center bg-navy-800/50 px-3 py-1 rounded">
+                  <span className="text-navy-100">💰</span>
+                  <span className="ml-1">Clear pricing</span>
+                </div>
+                <div className="flex items-center bg-navy-800/50 px-3 py-1 rounded">
+                  <span className="text-navy-100">📝</span>
+                  <span className="ml-1">Quote before work</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Side - Visual */}
+            <div className="hidden lg:block">
+              <div className="relative h-96 w-full">
+                <div className="absolute inset-0 bg-gradient-to-r from-navy-800 to-navy-900/50 opacity-80"></div>
+                <div className="relative z-10 flex items-center justify-center p-4">
+                  <div className="space-y-4 text-center">
+                    <div className="h-12 w-12 flex items-center justify-center bg-yellow-400 text-navy-900 rounded-full">
+                      ⚡
+                    </div>
+                    <h3 className="text-lg font-semibold text-white">Trusted Electrical Service</h3>
+                    <p className="text-sm text-navy-200">
+                      Serving Kanpur with verified professionals
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full">
@@ -138,11 +183,12 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Service Area Messaging */}
       <section className="bg-navy-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-navy-900 mb-4">Serving Kanpur with Pride</h2>
-            <p className="text-navy-600">
+            <p className="text-navy-600 max-w-2xl">
               Our verified electricians are available across all sectors of Kanpur including 
               Civil Lines, Kidwai Nagar, Barra, Rajajipuram, and more. 
               Enter your pincode to check service availability.
@@ -151,12 +197,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Popular Service Categories */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
             Popular Electrical Services
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((category) => (
               <div 
                 key={category.id} 
@@ -181,6 +228,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Common Electrical Problems */}
       <section className="bg-navy-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-10">
@@ -227,12 +275,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* How It Works */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
             How BijliBhai Works
           </h2>
-          <div className="grid gap-8 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div className="text-center">
               <div className="h-12 w-12 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-4">
                 1
@@ -260,10 +309,20 @@ const Index = () => {
                 Verified electrician arrives on time, fixes the issue, and ensures safety
               </p>
             </div>
+            <div className="text-center">
+              <div className="h-12 w-12 flex items-center justify-center bg-navy-100 text-navy-600 rounded-full mb-4">
+                4
+              </div>
+              <h3 className="text-lg font-semibold text-navy-900 mb-2">Quote Approved & Work Done</h3>
+              <p className="text-navy-500">
+                Approve the quote and our expert gets the job done safely and efficiently
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Transparent Pricing */}
       <section className="bg-navy-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -301,6 +360,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Trust Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
@@ -347,6 +407,7 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Electrician Partner CTA */}
       <section className="bg-gradient-to-r from-navy-900 to-navy-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">
@@ -361,12 +422,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-navy-900 mb-12">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div className="border border-navy-200 rounded-lg overflow-hidden">
               <div 
                 className="bg-navy-50 px-6 py-4 cursor-pointer flex justify-between items-center hover:bg-navy-100 transition-colors"
@@ -424,10 +486,49 @@ const Index = () => {
                 We have a satisfaction guarantee. If you're not happy with the work, we'll send another electrician to fix it at no additional cost, or provide a full refund.
               </div>
             </div>
+            <div className="border border-navy-200 rounded-lg overflow-hidden">
+              <div 
+                className="bg-navy-50 px-6 py-4 cursor-pointer flex justify-between items-center hover:bg-navy-100 transition-colors"
+                onClick={(e) => {
+                  const target = e.currentTarget as HTMLElement
+                  const next = target.nextElementSibling as HTMLElement
+                  if (next) next.classList.toggle('hidden')
+                  target.classList.toggle('bg-navy-100')
+                }}
+              >
+                <h3 className="font-semibold text-navy-900">Visit charge kitna hai?</h3>
+                <svg className="h-5 w-5 text-navy-500 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div className="hidden px-6 py-4 text-navy-600">
+                Visit charge is ₹199 which includes diagnosis and basic inspection. This amount is adjustable against the final service cost if you proceed with the repair.
+              </div>
+            </div>
+            <div className="border border-navy-200 rounded-lg overflow-hidden">
+              <div 
+                className="bg-navy-50 px-6 py-4 cursor-pointer flex justify-between items-center hover:bg-navy-100 transition-colors"
+                onClick={(e) => {
+                  const target = e.currentTarget as HTMLElement
+                  const next = target.nextElementSibling as HTMLElement
+                  if (next) next.classList.toggle('hidden')
+                  target.classList.toggle('bg-navy-100')
+                }}
+              >
+                <h3 className="font-semibold text-navy-900">Material ka paisa alag lagega?</h3>
+                <svg className="h-5 w-5 text-navy-500 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+              <div className="hidden px-6 py-4 text-navy-600">
+                No, material costs are included in our fixed price packages unless specified otherwise for specialized materials. We provide transparent pricing upfront.
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="bg-navy-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
