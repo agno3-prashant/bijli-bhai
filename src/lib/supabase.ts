@@ -1,14 +1,33 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 
-// Check if we're in development and credentials are missing
-const isMissingCredentials = !supabaseUrl || !supabaseAnonKey
-
-if (isMissingCredentials) {
-  console.warn('⚠️ Supabase credentials missing. Some features will not work until you configure your .env file with VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY')
+const looksLikePlaceholder = (value: string | undefined) => {
+  if (!value) return true
+  const normalized = value.toLowerCase()
+  return (
+    normalized.includes('your-project-id') ||
+    normalized.includes('your_supabase') ||
+    normalized.includes('your-anon-key') ||
+    normalized.includes('your_anon_key') ||
+    normalized.includes('placeholder')
+  )
 }
 
-// Initialize Supabase client (will throw if credentials are missing and we try to use it)
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const isSupabaseConfigured =
+  Boolean(supabaseUrl && supabaseAnonKey) &&
+  !looksLikePlaceholder(supabaseUrl) &&
+  !looksLikePlaceholder(supabaseAnonKey)
+
+if (!isSupabaseConfigured) {
+  console.warn(
+    '⚠️ Supabase credentials missing or still set to placeholders. Using local mock data until VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are configured.'
+  )
+}
+
+// Always create a client so imports never throw. Placeholder values are only used when env is unset.
+export const supabase: SupabaseClient = createClient(
+  isSupabaseConfigured ? supabaseUrl! : 'https://placeholder.supabase.co',
+  isSupabaseConfigured ? supabaseAnonKey! : 'public-anon-key'
+)

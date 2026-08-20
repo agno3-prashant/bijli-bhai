@@ -1,26 +1,40 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+
+import { CallCta } from "@/components/cta/CtaLinks";
+import { SiteShell } from "@/components/layout/SiteShell";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname,
-    );
+    console.error("404:", location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <SiteShell>
+      <div className="mx-auto max-w-lg px-4 py-20 text-center">
+        <p className="text-sm font-semibold uppercase tracking-wider text-navy-500">
+          404
+        </p>
+        <h1 className="mt-3 font-display text-3xl font-bold text-ink">
+          Page nahi mili
+        </h1>
+        <p className="mt-3 text-navy-600">
+          Yeh link available nahi hai. Home par wapas jayein ya electrician ke
+          liye call karein.
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <Link
+            to="/"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-navy-950 px-5 font-semibold text-white"
+          >
+            BijliBhai Home
+          </Link>
+          <CallCta />
+        </div>
       </div>
-    </div>
+    </SiteShell>
   );
 };
 

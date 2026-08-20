@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase'
+import { isSupabaseConfigured, supabase } from '@/lib/supabase'
 
 export interface ServiceCategory {
   id: string
@@ -81,7 +81,7 @@ const mockServiceCategories: ServiceCategory[] = [
 export const getServiceCategories = async (): Promise<ServiceCategory[]> => {
   try {
     // Check if Supabase is configured
-    const isConfigured = !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VITE_SUPABASE_ANON_KEY
+    const isConfigured = isSupabaseConfigured
     
     if (!isConfigured) {
       console.info('ℹ️ Using mock service categories data (Supabase not configured)')
@@ -110,7 +110,7 @@ export const getServiceCategories = async (): Promise<ServiceCategory[]> => {
 export const getServicesByCategory = async (categoryId: string): Promise<Service[]> => {
   try {
     // Check if Supabase is configured
-    const isConfigured = !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VITE_SUPABASE_ANON_KEY
+    const isConfigured = isSupabaseConfigured
     
     if (!isConfigured) {
       console.info('ℹ️ Using mock services data (Supabase not configured)')
@@ -139,7 +139,7 @@ export const getServicesByCategory = async (categoryId: string): Promise<Service
 export const getAllServices = async (): Promise<Service[]> => {
   try {
     // Check if Supabase is configured
-    const isConfigured = !!import.meta.env.VITE_SUPABASE_URL && !!import.meta.env.VITE_SUPABASE_ANON_KEY
+    const isConfigured = isSupabaseConfigured
     
     if (!isConfigured) {
       console.info('ℹ️ Using mock services data (Supabase not configured)')
