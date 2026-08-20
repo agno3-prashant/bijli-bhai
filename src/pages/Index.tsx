@@ -1,4 +1,4 @@
-character">
+character and proper JSX nesting in error state">
 import { MadeWithDyad } from '@/components/made-with-dyad'
 import { useEffect, useState } from 'react'
 import { getServiceCategories, ServiceCategory } from '@/services/serviceCategoryService'
@@ -65,12 +65,13 @@ const Index = () => {
               <h3 className="text-lg font-semibold text-navy-900 mb-2">To fix this:</h3>
               <ol className="list-decimal list-inside text-navy-600 space-y-2">
                 <li>Create a Supabase project at <a href="https://supabase.com" className="text-navy-600 underline hover:text-navy-800" target="_blank" rel="noopener noreferrer">supabase.com</a></li>
-                <li>Get your project URL and anon key from Settings > API</li>
-                <li>Create a .env file in the project root with:</li>
-                <div className="mt-2 p-3 bg-navy-50 rounded-lg font-mono text-sm">
-                  VITE_SUPABASE_URL=your_project_url<br />
-                  VITE_SUPABASE_ANON_KEY=your_anon_key
-                </div>
+                <li>Get your project URL and anon key from the Project Settings, then navigate to the API page</li>
+                <li>Create a .env file in the project root with the following content:
+                  <div className="mt-2 p-3 bg-navy-50 rounded-lg font-mono text-sm">
+                    VITE_SUPABASE_URL=your_project_url<br />
+                    VITE_SUPABASE_ANON_KEY=your_anon_key
+                  </div>
+                </li>
                 <li>Run the database schema from src/database/schema.sql in your Supabase SQL editor</li>
               </ol>
             </div>
