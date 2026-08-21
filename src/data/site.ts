@@ -2,6 +2,7 @@ import { whatsappHref } from "@/lib/contact";
 
 export const NAV_LINKS = [
   { href: "/#services", label: "Services" },
+  { href: "/#book", label: "Book" },
   { href: "/#how-it-works", label: "How It Works" },
   { href: "/#why", label: "Why BijliBhai" },
   { href: "/#faq", label: "FAQ" },
@@ -129,8 +130,8 @@ export const PROBLEMS = [
 export const STEPS = [
   {
     step: "01",
-    title: "Call ya WhatsApp karein",
-    text: "Apni electrical problem batayein.",
+    title: "Number do, call ya WhatsApp",
+    text: "Appointment form, call ya WhatsApp se request bhejein.",
   },
   {
     step: "02",

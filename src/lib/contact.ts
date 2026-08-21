@@ -50,7 +50,8 @@ export type CtaEvent =
   | "call_clicked"
   | "whatsapp_clicked"
   | "service_clicked"
-  | "partner_clicked";
+  | "partner_clicked"
+  | "appointment_clicked";
 
 type TrackPayload = {
   event: CtaEvent;
