@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Confirmation from "./pages/Confirmation";
 import NotFound from "./pages/NotFound";
 import { SeoLanding } from "./pages/SeoLanding";
 import { SEO_PAGES } from "./data/seoPages";
@@ -34,6 +35,8 @@ const App = () => (
           ))}
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/thank-you" element={<Confirmation />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
