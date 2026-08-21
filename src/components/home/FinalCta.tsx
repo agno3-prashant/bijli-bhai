@@ -6,7 +6,7 @@ export function FinalCta() {
     <section id="contact" className="scroll-mt-24 bg-navy-950 py-16 text-white sm:py-24">
       <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-          Shuklaganj ya Unnao me electrician chahiye?
+          Kanpur, Shuklaganj ya Unnao me electrician chahiye?
         </h2>
         <p className="mt-4 text-lg text-white/75">
           BijliBhai ko call ya WhatsApp karein.

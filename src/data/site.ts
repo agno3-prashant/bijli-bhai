@@ -151,7 +151,7 @@ export const TRUST_POINTS = [
   },
   {
     title: "Local Electricians",
-    text: "Shuklaganj aur Unnao ke local electrical professionals.",
+    text: "Kanpur, Shuklaganj aur Unnao ke local electrical professionals.",
   },
   {
     title: "Quick Response",
@@ -181,6 +181,7 @@ export const PRICE_EXAMPLES = [
 ] as const;
 
 export const PRIMARY_AREAS = [
+  "Kanpur",
   "Shuklaganj",
   "Unnao",
   "Gangaghat",
@@ -192,7 +193,6 @@ export const PRIMARY_AREAS = [
 ] as const;
 
 export const EXTENDED_AREAS = [
-  "Kanpur",
   "Kakadeo",
   "Kalyanpur",
   "Swaroop Nagar",
@@ -215,8 +215,8 @@ export const FAQS = [
     a: "Expected labour/material cost kaam start hone se pehle customer ko clear ki jayegi.",
   },
   {
-    q: "Shuklaganj aur Unnao me kahan service available hai?",
-    a: "First priority Shuklaganj, Unnao, Gangaghat aur nearby residential areas jaise Rishi Nagar, Subhash Nagar aur Kanchan Nagar hain. Selected Kanpur areas me bhi availability call ya WhatsApp par confirm ki ja sakti hai. Availability electrician aur distance par depend karegi.",
+    q: "Kanpur, Shuklaganj aur Unnao me kahan service available hai?",
+    a: "Service Kanpur, Shuklaganj, Unnao, Gangaghat aur nearby residential areas jaise Rishi Nagar, Subhash Nagar aur Kanchan Nagar me available hai. Availability electrician aur distance par depend karegi. Exact area call ya WhatsApp par confirm karein.",
   },
   {
     q: "Emergency electrician mil sakta hai?",

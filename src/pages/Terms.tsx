@@ -4,9 +4,8 @@ const Terms = () => (
   <LegalLayout title="Terms of Service">
     <p>
       By using the BijliBhai website, calling, or messaging us, you agree to
-      these terms. BijliBhai coordinates local electrician requests with first
-      priority in Shuklaganj and Unnao, plus selected nearby and Kanpur areas
-      depending on electrician availability.
+      these terms. BijliBhai coordinates local electrician requests in Kanpur,
+      Shuklaganj, Unnao and nearby areas depending on electrician availability.
     </p>
     <h2 className="font-display text-lg font-semibold text-ink">Service scope</h2>
     <p>

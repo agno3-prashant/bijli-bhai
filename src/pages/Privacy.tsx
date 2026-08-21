@@ -3,10 +3,9 @@ import { LegalLayout } from "@/components/layout/LegalLayout";
 const Privacy = () => (
   <LegalLayout title="Privacy Policy">
     <p>
-      BijliBhai is a local electrician coordination service for Shuklaganj,
-      Unnao and nearby areas, with selected Kanpur locations as a secondary
-      expansion market. This first-release website is designed to help visitors
-      call or WhatsApp us.
+      BijliBhai is a local electrician coordination service for Kanpur,
+      Shuklaganj, Unnao and nearby areas. This first-release website is designed
+      to help visitors call or WhatsApp us.
     </p>
     <h2 className="font-display text-lg font-semibold text-ink">
       Information we receive

@@ -2,7 +2,7 @@
 
 **Bijli ka kaam? Bhai ko bulao.**
 
-BijliBhai is a local electrician home-service brand for **Shuklaganj and Unnao**, Uttar Pradesh. We help households get a trusted local electrician at the door for everyday electrical work — without an app, login, or complicated booking flow.
+BijliBhai is a local electrician home-service brand for **Kanpur, Shuklaganj and Unnao**, Uttar Pradesh. We help households get a trusted local electrician at the door for everyday electrical work — without an app, login, or complicated booking flow.
 
 Customers simply **call or WhatsApp**. That is the booking system for this launch.
 
@@ -29,16 +29,15 @@ We do not claim guaranteed arrival times, police verification, or city-wide cove
 
 ## Where we serve
 
-**Primary (first priority)**
+**Primary**
 
-1. Shuklaganj
-2. Unnao
-3. Nearby Unnao / Shuklaganj areas (including Gangaghat)
-4. Shuklaganj localities such as **Rishi Nagar, Subhash Nagar, Kanchan Nagar**
+1. Kanpur
+2. Shuklaganj
+3. Unnao
+4. Nearby areas (including Gangaghat)
+5. Shuklaganj localities such as **Rishi Nagar, Subhash Nagar, Kanchan Nagar**
 
-**Extended (confirm before visit)**
-
-Selected Kanpur areas may be possible depending on electrician availability and distance. Always confirm the exact area on call or WhatsApp.
+Always confirm the exact area on call or WhatsApp. Availability depends on electrician and distance.
 
 ---
 
@@ -64,11 +63,11 @@ Paste this into Google Business Profile → Business information → Description
 (Search, Maps, and other Google services). Limit is 750 characters.
 
 ```
-BijliBhai is a local electrician home service for Shuklaganj and Unnao, Uttar Pradesh. We coordinate doorstep electrical work for homes: switch and socket repair, fan installation, light fitting, MCB/fuse/DB issues, wiring and new power points, inverter connection, inspection visits, and urgent electrical help.
+BijliBhai is a local electrician home service for Kanpur, Shuklaganj and Unnao, Uttar Pradesh. We coordinate doorstep electrical work for homes: switch and socket repair, fan installation, light fitting, MCB/fuse/DB issues, wiring and new power points, inverter connection, inspection visits, and urgent electrical help.
 
 Customers book by phone call or WhatsApp. Starting labour prices are shared upfront. Parts and material may be extra. Expected cost is discussed before work starts.
 
-Primary service areas: Shuklaganj, Unnao, Gangaghat, and nearby residential areas including Rishi Nagar, Subhash Nagar, and Kanchan Nagar. Selected Kanpur locations may be available depending on electrician and distance. Confirm your area by call or WhatsApp.
+Primary service areas: Kanpur, Shuklaganj, Unnao, Gangaghat, and nearby residential areas including Rishi Nagar, Subhash Nagar, and Kanchan Nagar. Confirm your area by call or WhatsApp.
 
 Bijli ka kaam? Bhai ko bulao.
 ```
@@ -77,7 +76,7 @@ Bijli ka kaam? Bhai ko bulao.
 
 - Category: Electrician
 - Service area business (if you do not have a public shop/office)
-- Primary location: Shuklaganj / Unnao, Uttar Pradesh — not Kanpur as the main city
+- Primary location: Kanpur, Shuklaganj and Unnao, Uttar Pradesh
 - Add the two phone numbers and WhatsApp number in the profile phone fields
 - Do not add fake reviews, ratings, or a fake street office address
 

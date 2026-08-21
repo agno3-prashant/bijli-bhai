@@ -54,16 +54,16 @@ export function Coverage() {
     <section id="coverage" className="scroll-mt-24 bg-white py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-          Shuklaganj aur Unnao me electrician chahiye?
+          Kanpur, Shuklaganj aur Unnao me electrician chahiye?
         </h2>
         <p className="mt-3 max-w-2xl text-navy-600">
-          BijliBhai ka first priority service area Shuklaganj aur Unnao hai.
-          Selected nearby areas aur Kanpur locations me service availability
-          call/WhatsApp par confirm ki ja sakti hai.
+          BijliBhai Kanpur, Shuklaganj aur Unnao me electrician service deta
+          hai. Nearby areas me availability call/WhatsApp par confirm ki ja
+          sakti hai.
         </p>
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           <AreaGroup title="Primary Service Areas" areas={PRIMARY_AREAS} featured />
-          <AreaGroup title="Extended Service Areas" areas={EXTENDED_AREAS} />
+          <AreaGroup title="More Kanpur areas" areas={EXTENDED_AREAS} />
         </div>
         <p className="mt-6 text-sm text-navy-600">
           Availability electrician aur distance par depend karegi. Exact area

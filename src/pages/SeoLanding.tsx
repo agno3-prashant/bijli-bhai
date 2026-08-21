@@ -53,9 +53,8 @@ export function SeoLanding({ page }: { page: SeoPage }) {
             Local doorstep electrician service
           </h2>
           <p className="mt-3 text-navy-600">
-            BijliBhai Shuklaganj aur Unnao ko first priority deta hai. Search
-            intent jaise “{page.intent}” ke liye yeh page hai. Kanpur selected
-            areas secondary expansion hain, always-on coverage nahi.
+            BijliBhai Kanpur, Shuklaganj aur Unnao me electrician service deta
+            hai. Search intent jaise “{page.intent}” ke liye yeh page hai.
           </p>
           <ul className="mt-6 flex flex-wrap gap-2">
             {PRIMARY_AREAS.slice(0, 6).map((area) => (

@@ -6,7 +6,7 @@ const CHIPS = [
   { icon: MapPin, label: "Local Electricians" },
   { icon: ShieldCheck, label: "Clear Pricing" },
   { icon: Timer, label: "Quick Response" },
-  { icon: Sparkles, label: "Shuklaganj & Unnao" },
+  { icon: Sparkles, label: "Kanpur, Shuklaganj & Unnao" },
 ];
 
 function HeroVisual() {
@@ -42,7 +42,7 @@ function HeroVisual() {
           <p className="text-center font-display text-lg font-semibold text-white">
             Doorstep electrician
             <span className="block text-sm font-medium text-white/60">
-              Shuklaganj & Unnao first. Price pehle clear.
+              Kanpur, Shuklaganj & Unnao. Price pehle clear.
             </span>
           </p>
           <div className="grid w-full grid-cols-2 gap-2 text-left">
@@ -75,14 +75,14 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-2 lg:py-20">
         <div className="animate-fade-up">
           <p className="mb-4 inline-flex rounded-full border border-yellow/30 bg-yellow/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-yellow">
-            Serving Shuklaganj & Unnao first
+            Serving Kanpur, Shuklaganj & Unnao
           </p>
           <h1 className="font-display text-[2.15rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             Bijli ka kaam?
             <span className="mt-1 block text-yellow">Bhai ko bulao.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-            Trusted local electricians for Shuklaganj, Unnao aur nearby areas.
+            Trusted local electricians for Kanpur, Shuklaganj, Unnao aur nearby areas.
           </p>
           <p className="mt-3 max-w-xl text-sm font-medium text-white/90 sm:text-base">
             Switch, fan, MCB, wiring, inverter aur electrical repair ke liye
@@ -107,7 +107,7 @@ export function Hero() {
             ))}
           </ul>
           <p className="mt-4 text-xs text-white/50">
-            Shuklaganj localities: Rishi Nagar, Subhash Nagar, Kanchan Nagar
+            Kanpur, Shuklaganj (Rishi Nagar, Subhash Nagar, Kanchan Nagar) aur Unnao
           </p>
         </div>
         <div className="animate-fade-up lg:pl-6">

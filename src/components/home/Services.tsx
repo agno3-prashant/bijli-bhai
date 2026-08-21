@@ -34,7 +34,7 @@ export function Services() {
             Popular services
           </p>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Shuklaganj aur Unnao ke common electrician jobs
+            Kanpur, Shuklaganj aur Unnao ke common electrician jobs
           </h2>
           <p className="mt-3 text-base text-navy-600">
             Starting labour prices visible hain. Material alag ho sakta hai.

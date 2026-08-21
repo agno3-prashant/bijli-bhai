@@ -43,7 +43,7 @@ export const PRICE_WHATSAPP_HREF = whatsappHref(
 );
 
 export const AREA_WHATSAPP_HREF = whatsappHref(
-  "Namaste BijliBhai, kya aap Shuklaganj / Unnao / mere nearby area me electrician service dete hain? Area confirm karna hai.",
+  "Namaste BijliBhai, kya aap Kanpur / Shuklaganj / Unnao / mere nearby area me electrician service dete hain? Area confirm karna hai.",
 );
 
 export type CtaEvent =

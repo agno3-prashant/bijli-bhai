@@ -17,6 +17,7 @@ const FOOTER_LINKS = [
   ...NAV_LINKS.filter((link) =>
     ["Services", "How It Works", "FAQ", "Contact"].includes(link.label),
   ),
+  { href: "/#coverage", label: "Kanpur" },
   { href: "/electrician-shuklaganj", label: "Shuklaganj" },
   { href: "/electrician-unnao", label: "Unnao" },
   { href: "/privacy", label: "Privacy" },
@@ -33,8 +34,8 @@ export function SiteFooter() {
             Bijli ka kaam? Bhai ko bulao.
           </p>
           <p className="mt-2 max-w-sm text-sm text-white/55">
-            Local electrician service for Shuklaganj, Unnao aur nearby areas.
-            Selected Kanpur locations par availability confirm karein.
+            Local electrician service for Kanpur, Shuklaganj, Unnao aur nearby
+            areas.
           </p>
         </div>
 
@@ -108,14 +109,14 @@ export function SiteFooter() {
             </li>
             <li className="inline-flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 text-yellow" />
-              Shuklaganj & Unnao, Uttar Pradesh
+              Kanpur, Shuklaganj & Unnao, Uttar Pradesh
             </li>
           </ul>
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-white/45">
-        © {new Date().getFullYear()} BijliBhai. Electrician service in Shuklaganj
-        & Unnao.
+        © {new Date().getFullYear()} BijliBhai. Electrician service in Kanpur,
+        Shuklaganj & Unnao.
       </div>
     </footer>
   );
