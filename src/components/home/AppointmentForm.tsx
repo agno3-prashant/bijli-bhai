@@ -57,7 +57,11 @@ export function AppointmentForm({ className }: { className?: string }) {
     }
 
     setError("");
-    const message = `Namaste BijliBhai, appointment book karna hai. Mera number +91 ${number} hai. Area: ${area}. Problem: ${issue}. Please confirm.`;
+    const message = `Namaste BijliBhai, appointment book karna hai. Mera number +91 ${number} hai.
+
+Location: ${area}
+Problem: ${issue}
+Preferred Time:`;
 
     trackCta({
       event: "appointment_clicked",

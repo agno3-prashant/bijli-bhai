@@ -10,8 +10,10 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { Partner } from "@/components/home/Partner";
 import { Pricing } from "@/components/home/Pricing";
 import { Problems } from "@/components/home/Problems";
+import { ReviewsTeaser } from "@/components/home/ReviewsTeaser";
 import { Services } from "@/components/home/Services";
 import { WhyBijliBhai } from "@/components/home/WhyBijliBhai";
+import { WorkGallery } from "@/components/home/WorkGallery";
 import { SiteShell } from "@/components/layout/SiteShell";
 
 function useHashScroll() {
@@ -39,6 +41,8 @@ const Index = () => {
       <HowItWorks />
       <WhyBijliBhai />
       <Pricing />
+      <WorkGallery />
+      <ReviewsTeaser />
       <Coverage />
       <Emergency />
       <Partner />

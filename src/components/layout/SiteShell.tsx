@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white text-ink">
+    <div className="min-h-screen overflow-x-hidden bg-canvas text-ink">
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />

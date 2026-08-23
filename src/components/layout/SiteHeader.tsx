@@ -40,7 +40,7 @@ export function SiteHeader() {
           : "border-transparent bg-navy-950"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+      <div className="page-wrap flex h-16 items-center justify-between gap-3">
         <Logo variant="light" />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">

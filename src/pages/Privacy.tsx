@@ -13,7 +13,10 @@ const Privacy = () => (
     <p>
       We do not require account creation. If you call or message us, we receive
       the phone number and the message content you send through your phone or
-      WhatsApp.
+      WhatsApp. If you submit a review, we receive the name, mobile number,
+      locality, service details and feedback you enter. Reviews stay private
+      until BijliBhai approves them. Public reviews show only a first name,
+      locality, service and review text — never your mobile number.
     </p>
     <h2 className="font-display text-lg font-semibold text-ink">How we use it</h2>
     <p>

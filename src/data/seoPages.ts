@@ -11,6 +11,18 @@ export type SeoPage = {
 
 export const SEO_PAGES: SeoPage[] = [
   {
+    path: "/electrician-kanpur",
+    title: "Electrician in Kanpur | BijliBhai",
+    description:
+      "Electrician in Kanpur chahiye? BijliBhai local doorstep service deta hai for switch, fan, MCB, wiring aur inverter. Call ya WhatsApp karein.",
+    h1: "Electrician in Kanpur",
+    intro:
+      "Kanpur me trusted local electrician chahiye? BijliBhai Kanpur, Shuklaganj aur Unnao ke liye doorstep electrical service coordinate karta hai.",
+    intent: "electrician in Kanpur",
+    area: "Kanpur",
+    serviceFocus: "home electrician service",
+  },
+  {
     path: "/electrician-shuklaganj",
     title: "Electrician in Shuklaganj | BijliBhai",
     description:

@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { Logo } from "@/components/brand/Logo";
 import { WhatsAppGlyph } from "@/components/cta/CtaLinks";
-import { NAV_LINKS } from "@/data/site";
 import {
   CALL_NUMBERS,
   DEFAULT_WHATSAPP_HREF,
@@ -14,10 +13,14 @@ import {
 } from "@/lib/contact";
 
 const FOOTER_LINKS = [
-  ...NAV_LINKS.filter((link) =>
-    ["Services", "How It Works", "FAQ", "Contact"].includes(link.label),
-  ),
-  { href: "/#coverage", label: "Kanpur" },
+  { href: "/#services", label: "Services" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#partner", label: "Partner" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/electrician-kanpur", label: "Kanpur" },
   { href: "/electrician-shuklaganj", label: "Shuklaganj" },
   { href: "/electrician-unnao", label: "Unnao" },
   { href: "/privacy", label: "Privacy" },
@@ -25,9 +28,13 @@ const FOOTER_LINKS = [
 ];
 
 export function SiteFooter() {
+  const hideStickyPad = useLocation().pathname === "/review";
+
   return (
-    <footer className="bg-navy-950 pb-24 text-white md:pb-0">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+    <footer
+      className={`bg-navy-950 text-white ${hideStickyPad ? "" : "pb-24 md:pb-0"}`}
+    >
+      <div className="page-wrap grid gap-10 py-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <Logo variant="light" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
@@ -49,6 +56,15 @@ export function SiteFooter() {
                 <Link
                   to={link.href}
                   className="text-sm text-white/75 transition hover:text-yellow"
+                  onClick={() => {
+                    if (["Kanpur", "Shuklaganj", "Unnao"].includes(link.label)) {
+                      trackCta({
+                        event: "location_clicked",
+                        label: link.label,
+                        href: link.href,
+                      });
+                    }
+                  }}
                 >
                   {link.label}
                 </Link>

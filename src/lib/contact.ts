@@ -21,8 +21,11 @@ export const EMAIL_HREF = `mailto:${EMAIL}`;
 export const WHATSAPP_NUMBER = "919565610183";
 export const WHATSAPP_DISPLAY = "+91 9565610183";
 
-export const DEFAULT_WHATSAPP_TEXT =
-  "Namaste BijliBhai, mujhe electrician service chahiye.";
+export const DEFAULT_WHATSAPP_TEXT = `Namaste BijliBhai, mujhe electrician service chahiye.
+
+Location:
+Problem:
+Preferred Time:`;
 
 export function whatsappHref(text: string = DEFAULT_WHATSAPP_TEXT) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -31,27 +34,54 @@ export function whatsappHref(text: string = DEFAULT_WHATSAPP_TEXT) {
 export const DEFAULT_WHATSAPP_HREF = whatsappHref();
 
 export const EMERGENCY_WHATSAPP_HREF = whatsappHref(
-  "Namaste BijliBhai, mujhe urgent electrical issue ke liye electrician chahiye.",
+  `Namaste BijliBhai, mujhe urgent electrical issue ke liye electrician chahiye.
+
+Location:
+Problem:
+Preferred Time:`,
 );
 
 export const PARTNER_WHATSAPP_HREF = whatsappHref(
-  "Namaste BijliBhai, main electrician hoon aur BijliBhai ke saath partner banna chahta hoon.",
+  `Namaste BijliBhai, main electrician hoon aur BijliBhai ke saath partner banna chahta hoon.
+
+Name:
+Area:
+Experience:`,
 );
 
 export const PRICE_WHATSAPP_HREF = whatsappHref(
-  "Namaste BijliBhai, mujhe electrician service ki price puchhni hai.",
+  `Namaste BijliBhai, mujhe electrician service ki price puchhni hai.
+
+Location:
+Problem:
+Preferred Time:`,
 );
 
 export const AREA_WHATSAPP_HREF = whatsappHref(
-  "Namaste BijliBhai, kya aap Kanpur / Shuklaganj / Unnao / mere nearby area me electrician service dete hain? Area confirm karna hai.",
+  `Namaste BijliBhai, kya aap Kanpur / Shuklaganj / Unnao / mere nearby area me electrician service dete hain? Area confirm karna hai.
+
+Location:
+Problem:
+Preferred Time:`,
 );
+
+export function serviceWhatsAppMessage(serviceName: string) {
+  return `Namaste BijliBhai, mujhe ${serviceName} service chahiye.
+
+Location:
+Problem:
+Preferred Time:`;
+}
 
 export type CtaEvent =
   | "call_clicked"
   | "whatsapp_clicked"
   | "service_clicked"
   | "partner_clicked"
-  | "appointment_clicked";
+  | "appointment_clicked"
+  | "review_started"
+  | "review_submitted"
+  | "location_clicked";
 
 type TrackPayload = {
   event: CtaEvent;

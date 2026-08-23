@@ -1,35 +1,58 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Phone } from "lucide-react";
 
 import { TrackedLink, WhatsAppGlyph } from "@/components/cta/CtaLinks";
 import { CALL_HREF, DEFAULT_WHATSAPP_HREF } from "@/lib/contact";
 
 export function FloatingActions() {
+  const { pathname } = useLocation();
+  const hideOnReview = pathname === "/review";
+  const [keyboardOpen, setKeyboardOpen] = useState(false);
+
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    if (!viewport) return;
+
+    const update = () => {
+      setKeyboardOpen(window.innerHeight - viewport.height > 140);
+    };
+
+    update();
+    viewport.addEventListener("resize", update);
+    return () => viewport.removeEventListener("resize", update);
+  }, []);
+
+  if (hideOnReview) return null;
+
   return (
     <>
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy-800 bg-navy-950/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
-        <div className="mx-auto grid max-w-lg grid-cols-2 gap-2">
-          <TrackedLink
-            href={CALL_HREF}
-            event="call_clicked"
-            label="Mobile bar Call Now"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-yellow text-sm font-semibold text-navy-950"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            Call Now
-          </TrackedLink>
-          <TrackedLink
-            href={DEFAULT_WHATSAPP_HREF}
-            event="whatsapp_clicked"
-            label="Mobile bar WhatsApp"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] text-sm font-semibold text-white"
-          >
-            <WhatsAppGlyph className="h-4 w-4" />
-            WhatsApp
-          </TrackedLink>
+      {!keyboardOpen ? (
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy-800 bg-navy-950/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
+          <div className="mx-auto grid max-w-lg grid-cols-2 gap-2">
+            <TrackedLink
+              href={CALL_HREF}
+              event="call_clicked"
+              label="Mobile bar Call Now"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-yellow text-sm font-semibold text-navy-950"
+            >
+              <Phone className="h-4 w-4" aria-hidden />
+              Call Now
+            </TrackedLink>
+            <TrackedLink
+              href={DEFAULT_WHATSAPP_HREF}
+              event="whatsapp_clicked"
+              label="Mobile bar WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#25D366] text-sm font-semibold text-white"
+            >
+              <WhatsAppGlyph className="h-4 w-4" />
+              WhatsApp
+            </TrackedLink>
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <TrackedLink
         href={DEFAULT_WHATSAPP_HREF}

@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Confirmation from "./pages/Confirmation";
+import Review from "./pages/Review";
+import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
 import { SeoLanding } from "./pages/SeoLanding";
 import { SEO_PAGES } from "./data/seoPages";
@@ -37,6 +39,8 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/confirmation" element={<Confirmation />} />
           <Route path="/thank-you" element={<Confirmation />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/review" element={<Review />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

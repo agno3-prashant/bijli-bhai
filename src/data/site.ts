@@ -1,12 +1,12 @@
-import { whatsappHref } from "@/lib/contact";
+import { serviceWhatsAppMessage, whatsappHref } from "@/lib/contact";
 
 export const NAV_LINKS = [
   { href: "/#services", label: "Services" },
-  { href: "/#book", label: "Book" },
+  { href: "/#pricing", label: "Pricing" },
   { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#why", label: "Why BijliBhai" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/#contact", label: "Contact" },
+  { href: "/#partner", label: "Partner" },
 ] as const;
 
 export const SERVICES = [
@@ -15,160 +15,136 @@ export const SERVICES = [
     title: "Switch & Socket",
     price: "Starting ₹99",
     description: "Faulty switch, loose socket ya new board fitting.",
-    message:
-      "Namaste BijliBhai, mujhe switch aur socket ki electrician service chahiye.",
+    message: serviceWhatsAppMessage("Switch & Socket"),
   },
   {
     slug: "fan",
     title: "Fan Installation & Repair",
     price: "Starting ₹199",
     description: "Ceiling fan lagwana, wobble, regulator ya servicing.",
-    message:
-      "Namaste BijliBhai, mujhe fan installation ya repair ke liye electrician chahiye.",
+    message: serviceWhatsAppMessage("Fan"),
   },
   {
     slug: "light",
     title: "Light Installation",
     price: "Starting ₹149",
     description: "Bulb, tube, panel light aur fitting ka kaam.",
-    message:
-      "Namaste BijliBhai, mujhe light installation ke liye electrician chahiye.",
+    message: serviceWhatsAppMessage("Light"),
   },
   {
     slug: "mcb-db",
     title: "MCB / Fuse / DB",
     price: "Starting ₹199",
     description: "Trip ho rahi MCB, fuse change, DB check.",
-    message:
-      "Namaste BijliBhai, mujhe MCB, fuse ya DB ke liye electrician chahiye.",
+    message: serviceWhatsAppMessage("MCB / electrical fault"),
   },
   {
     slug: "wiring",
     title: "Wiring & New Points",
     price: "Starting ₹499",
     description: "Naya power point, concealed wiring ya extra load.",
-    message:
-      "Namaste BijliBhai, mujhe wiring ya naya power point banana hai.",
+    message: serviceWhatsAppMessage("Wiring"),
   },
   {
     slug: "inverter",
     title: "Inverter",
     price: "Starting ₹299",
     description: "Inverter connection, wiring check aur setup help.",
-    message:
-      "Namaste BijliBhai, inverter connect ya check karwana hai.",
+    message: serviceWhatsAppMessage("Inverter"),
   },
   {
     slug: "inspection",
     title: "Electrical Inspection",
     price: "Visit from ₹199",
     description: "Safety check, diagnosis aur expected cost clear karna.",
-    message:
-      "Namaste BijliBhai, electrical inspection ke liye electrician chahiye.",
+    message: serviceWhatsAppMessage("Electrical Inspection"),
   },
   {
     slug: "emergency",
     title: "Emergency Electrical Help",
     price: "Visit from ₹399",
     description: "Sparking, burning smell, sudden power issue.",
-    message:
-      "Namaste BijliBhai, mujhe urgent electrical issue ke liye electrician chahiye.",
+    message: serviceWhatsAppMessage("Emergency Electrical Help"),
   },
 ] as const;
 
 export const PROBLEMS = [
   {
     title: "MCB baar-baar trip ho rahi hai?",
-    href: whatsappHref(
-      "Namaste BijliBhai, meri MCB baar-baar trip ho rahi hai. Mujhe electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("MCB / electrical fault")),
   },
   {
     title: "Fan install karwana hai?",
-    href: whatsappHref(
-      "Namaste BijliBhai, mujhe fan install karwana hai. Electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Fan")),
   },
   {
     title: "Switch kaam nahi kar raha?",
-    href: whatsappHref(
-      "Namaste BijliBhai, mera switch kaam nahi kar raha. Mujhe electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Switch")),
   },
   {
     title: "Light fitting chahiye?",
-    href: whatsappHref(
-      "Namaste BijliBhai, mujhe light fitting chahiye. Electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Light")),
   },
   {
     title: "Short circuit ka doubt hai?",
-    href: whatsappHref(
-      "Namaste BijliBhai, short circuit ka doubt hai. Mujhe electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Emergency Electrical Help")),
   },
   {
     title: "Naya power point banana hai?",
-    href: whatsappHref(
-      "Namaste BijliBhai, naya power point banana hai. Mujhe electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Wiring")),
   },
   {
     title: "Inverter connect karwana hai?",
-    href: whatsappHref(
-      "Namaste BijliBhai, inverter connect karwana hai. Mujhe electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Inverter")),
   },
   {
     title: "Wiring issue hai?",
-    href: whatsappHref(
-      "Namaste BijliBhai, wiring issue hai. Mujhe electrician service chahiye.",
-    ),
+    href: whatsappHref(serviceWhatsAppMessage("Wiring")),
   },
 ] as const;
 
 export const STEPS = [
   {
     step: "01",
-    title: "Number do, call ya WhatsApp",
-    text: "Appointment form, call ya WhatsApp se request bhejein.",
+    title: "Call ya WhatsApp karein",
+    text: "Problem aur location share karein.",
   },
   {
     step: "02",
-    title: "Electrician assign hoga",
-    text: "Available local electrician aapke area ke liye coordinate kiya jayega.",
+    title: "Electrician coordinate hoga",
+    text: "Available local electrician request handle karega.",
   },
   {
     step: "03",
-    title: "Price clear karke kaam hoga",
-    text: "Kaam shuru hone se pehle labour aur expected cost clear ki jayegi.",
+    title: "Price clear → kaam start",
+    text: "Expected labour/material cost clear hone ke baad kaam proceed karega.",
   },
 ] as const;
 
 export const TRUST_POINTS = [
   {
     title: "Clear Pricing",
-    text: "Labour charges pehle se clear rakhne ki koshish.",
+    text: "Expected labour cost pehle clear.",
   },
   {
     title: "Local Electricians",
-    text: "Kanpur, Shuklaganj aur Unnao ke local electrical professionals.",
+    text: "Kanpur, Shuklaganj & Unnao coverage.",
   },
   {
-    title: "Quick Response",
-    text: "Call aur WhatsApp ke through fast coordination.",
-  },
-  {
-    title: "Wide Service Coverage",
-    text: "Switch se wiring aur inverter tak.",
+    title: "Quick Coordination",
+    text: "Direct call aur WhatsApp support.",
   },
   {
     title: "Doorstep Service",
-    text: "Electrician directly aapke location par.",
+    text: "Electrician customer location par.",
+  },
+  {
+    title: "Wide Service Range",
+    text: "Basic fitting se wiring/inverter tak.",
   },
   {
     title: "Human Support",
-    text: "Direct phone aur WhatsApp support.",
+    text: "Direct communication when required.",
   },
 ] as const;
 

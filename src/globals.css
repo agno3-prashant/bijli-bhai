@@ -96,12 +96,38 @@
   }
 
   body {
-    @apply bg-white font-sans text-ink antialiased;
+    @apply bg-canvas font-sans text-ink antialiased;
     overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-yellow ring-offset-2 ring-offset-canvas;
+  }
+}
+
+@layer components {
+  .page-wrap {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply scroll-mt-24 py-12 sm:py-16 lg:py-24;
+  }
+
+  .section-title {
+    @apply font-display text-[1.65rem] font-bold tracking-tight text-ink sm:text-4xl;
+  }
+
+  .section-copy {
+    @apply mt-3 max-w-2xl text-[15px] leading-relaxed text-slate sm:text-base;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-navy-100 bg-white shadow-card transition duration-200;
   }
 }
 
