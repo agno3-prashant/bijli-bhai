@@ -4,13 +4,19 @@ import { FloatingActions } from "@/components/layout/FloatingActions";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
-export function SiteShell({ children }: { children: ReactNode }) {
+export function SiteShell({
+  children,
+  compact = false,
+}: {
+  children: ReactNode;
+  compact?: boolean;
+}) {
   return (
     <div className="min-h-screen overflow-x-hidden bg-canvas text-ink">
-      <SiteHeader />
+      <SiteHeader compact={compact} />
       <main>{children}</main>
-      <SiteFooter />
-      <FloatingActions />
+      <SiteFooter compact={compact} />
+      {compact ? null : <FloatingActions />}
     </div>
   );
 }

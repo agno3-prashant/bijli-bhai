@@ -27,8 +27,23 @@ const FOOTER_LINKS = [
   { href: "/terms", label: "Terms" },
 ];
 
-export function SiteFooter() {
-  const hideStickyPad = useLocation().pathname === "/review";
+export function SiteFooter({ compact = false }: { compact?: boolean }) {
+  const hideStickyPad = compact || useLocation().pathname === "/review";
+
+  if (compact) {
+    return (
+      <footer className="bg-navy-950 text-white">
+        <div className="page-wrap flex flex-col gap-3 py-8 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          <p className="text-sm text-white/60">
+            BijliBhai · Kanpur • Shuklaganj • Unnao
+          </p>
+          <Link to="/" className="text-sm font-semibold text-yellow hover:underline">
+            Home par wapas jayein
+          </Link>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer

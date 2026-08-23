@@ -129,6 +129,22 @@
   .surface-card {
     @apply rounded-2xl border border-navy-100 bg-white shadow-card transition duration-200;
   }
+
+  .field-label {
+    @apply text-sm font-semibold text-navy-800;
+  }
+
+  .field-input {
+    @apply mt-2 h-12 w-full rounded-xl border border-navy-200 bg-white px-4 text-base text-ink shadow-[inset_0_1px_0_rgba(7,24,44,0.02)] transition placeholder:text-navy-300 focus:border-yellow focus:outline-none focus:ring-4 focus:ring-yellow/20;
+  }
+
+  .field-input-error {
+    @apply border-red-400 focus:border-red-400 focus:ring-red-200/60;
+  }
+
+  .chip {
+    @apply rounded-full px-3.5 py-2 text-sm font-semibold transition;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

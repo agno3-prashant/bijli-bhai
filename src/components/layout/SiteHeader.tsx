@@ -16,7 +16,7 @@ import {
 import { NAV_LINKS } from "@/data/site";
 import { CALL_HREF } from "@/lib/contact";
 
-export function SiteHeader() {
+export function SiteHeader({ compact = false }: { compact?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -43,68 +43,79 @@ export function SiteHeader() {
       <div className="page-wrap flex h-16 items-center justify-between gap-3">
         <Logo variant="light" />
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {compact ? null : (
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="rounded-lg px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        )}
 
         <div className="flex items-center gap-2">
           <TrackedLink
             href={CALL_HREF}
             event="call_clicked"
             label="Header call icon"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-yellow text-navy-950 lg:hidden"
+            className={`inline-flex h-11 items-center justify-center rounded-full bg-yellow text-navy-950 ${
+              compact ? "w-11 sm:w-auto sm:gap-2 sm:px-4 sm:font-semibold" : "w-11 lg:hidden"
+            }`}
             aria-label="Call BijliBhai"
           >
             <Phone className="h-5 w-5" />
+            {compact ? (
+              <span className="hidden sm:inline">Call</span>
+            ) : null}
           </TrackedLink>
 
-          <CallCta className="hidden min-h-11 px-4 text-sm lg:inline-flex" />
+          {compact ? null : (
+            <CallCta className="hidden min-h-11 px-4 text-sm lg:inline-flex" />
+          )}
 
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <button
-                type="button"
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-white lg:hidden"
-                aria-label="Open menu"
+          {compact ? null : (
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-white lg:hidden"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </button>
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                className="border-navy-800 bg-navy-950 text-white"
               >
-                <Menu className="h-5 w-5" />
-              </button>
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="border-navy-800 bg-navy-950 text-white"
-            >
-              <SheetHeader>
-                <SheetTitle className="text-left text-white">Menu</SheetTitle>
-                <SheetDescription className="sr-only">
-                  BijliBhai page sections and call action
-                </SheetDescription>
-              </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-2" aria-label="Mobile">
-                {NAV_LINKS.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="rounded-xl px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-              </nav>
-              <div className="mt-8">
-                <CallCta className="w-full" />
-              </div>
-            </SheetContent>
-          </Sheet>
+                <SheetHeader>
+                  <SheetTitle className="text-left text-white">Menu</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    BijliBhai page sections and call action
+                  </SheetDescription>
+                </SheetHeader>
+                <nav className="mt-8 flex flex-col gap-2" aria-label="Mobile">
+                  {NAV_LINKS.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        to={link.href}
+                        className="rounded-xl px-3 py-3 text-base font-medium text-white/90 hover:bg-white/10"
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <div className="mt-8">
+                  <CallCta className="w-full" />
+                </div>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </header>

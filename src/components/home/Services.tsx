@@ -75,7 +75,7 @@ export function Services() {
                   label={`${service.title} WhatsApp`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-navy-200 px-3 text-sm font-semibold text-navy-800"
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl border border-navy-200 bg-white px-3 text-sm font-semibold text-navy-800 hover:border-navy-400"
                 >
                   Book
                 </TrackedLink>

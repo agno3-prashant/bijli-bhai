@@ -11,6 +11,7 @@ import Review from "./pages/Review";
 import Reviews from "./pages/Reviews";
 import NotFound from "./pages/NotFound";
 import { SeoLanding } from "./pages/SeoLanding";
+import { ScrollToTop } from "./components/layout/ScrollToTop";
 import { SEO_PAGES } from "./data/seoPages";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={routerBasename}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           {SEO_PAGES.map((page) => (
