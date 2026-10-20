@@ -13,7 +13,7 @@ import type { LucideIcon } from "lucide-react";
 
 import { TrackedLink } from "@/components/cta/CtaLinks";
 import { Section } from "@/components/layout/Section";
-import { SERVICES } from "@/data/site";
+import { getCatalogueServices } from "@/data/site";
 import { CALL_HREF, whatsappHref } from "@/lib/contact";
 
 const ICONS: Record<string, LucideIcon> = {
@@ -43,7 +43,7 @@ export function Services() {
         </p>
       </div>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {SERVICES.map((service) => {
+        {getCatalogueServices().map((service) => {
           const Icon = ICONS[service.slug] ?? Plug;
           return (
             <article

@@ -13,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { NAV_LINKS } from "@/data/site";
+import { getNavLinks } from "@/data/site";
 import { CALL_HREF } from "@/lib/contact";
 
 export function SiteHeader({ compact = false }: { compact?: boolean }) {
@@ -45,7 +45,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
 
         {compact ? null : (
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-            {NAV_LINKS.map((link) => (
+            {getNavLinks().map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -99,7 +99,7 @@ export function SiteHeader({ compact = false }: { compact?: boolean }) {
                   </SheetDescription>
                 </SheetHeader>
                 <nav className="mt-8 flex flex-col gap-2" aria-label="Mobile">
-                  {NAV_LINKS.map((link) => (
+                  {getNavLinks().map((link) => (
                     <SheetClose asChild key={link.href}>
                       <Link
                         to={link.href}

@@ -66,11 +66,13 @@ Preferred Time:`,
 );
 
 export const DIWALI_WHATSAPP_HREF = whatsappHref(
-  `Namaste BijliBhai, Diwali ke liye lighting / jhalar ka kaam hai.
+  `Namaste BijliBhai! Mujhe Diwali lighting installation karwani hai.
 
+Property:
+Service:
 Location:
-Problem: jhalar / fairy lights / extra point / light repair
-Preferred Time:`,
+Preferred Date:
+Please share availability and estimated charges.`,
 );
 
 export function serviceWhatsAppMessage(serviceName: string) {
@@ -89,7 +91,13 @@ export type CtaEvent =
   | "appointment_clicked"
   | "review_started"
   | "review_submitted"
-  | "location_clicked";
+  | "location_clicked"
+  | "diwali_banner_clicked"
+  | "diwali_page_viewed"
+  | "diwali_service_selected"
+  | "diwali_booking_started"
+  | "diwali_whatsapp_clicked"
+  | "diwali_call_clicked";
 
 type TrackPayload = {
   event: CtaEvent;

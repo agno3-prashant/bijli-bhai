@@ -1,80 +1,77 @@
-import { Lightbulb, Plug, Sparkles, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
-import { CallCta, WhatsAppCta } from "@/components/cta/CtaLinks";
+import { FestiveHomeVisual } from "@/campaigns/diwali/FestiveHomeVisual";
+import { DIWALI_CAMPAIGN } from "@/campaigns/diwali/config";
+import { diwaliWhatsAppHref } from "@/campaigns/diwali/messages";
+import { CallCta, OutlineCta, WhatsAppCta } from "@/components/cta/CtaLinks";
 import { Section } from "@/components/layout/Section";
-import { DIWALI_WHATSAPP_HREF } from "@/lib/contact";
-
-const JOBS = [
-  {
-    icon: Sparkles,
-    title: "Jhalar / fairy lights",
-    text: "Ghar, balcony, gate, terrace — jhalar seedha aur safe lagwana.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Lights theek karo",
-    text: "Blink, fuse, half-strip dead, connector loose — festival se pehle fix.",
-  },
-  {
-    icon: Plug,
-    title: "Extra point",
-    text: "Decoration ke liye naya power point, overload se bachao.",
-  },
-  {
-    icon: Zap,
-    title: "Safe wiring check",
-    text: "Zyada lights = extra load. Short / trip ka doubt ho to pehle check.",
-  },
-] as const;
+import { PRICE_WHATSAPP_HREF, trackCta } from "@/lib/contact";
 
 export function DiwaliLights() {
   return (
-    <Section id="diwali" className="relative overflow-hidden bg-navy-950 text-white">
-      <div className="diwali-string" aria-hidden />
-      <div className="pointer-events-none absolute -right-16 top-0 h-56 w-56 rounded-full bg-yellow/15 blur-3xl" />
-      <div className="pointer-events-none absolute -left-10 bottom-0 h-40 w-40 rounded-full bg-yellow/10 blur-3xl" />
-
-      <div className="relative">
-        <p className="inline-flex rounded-full border border-yellow/30 bg-yellow/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-yellow">
-          Diwali special · Kanpur • Shuklaganj • Unnao
-        </p>
-        <h2 className="mt-4 max-w-3xl font-display text-[1.75rem] font-extrabold leading-[1.1] tracking-tight sm:text-4xl">
-          Diwali pe ghar chamkana hai?
-          <span className="mt-1 block text-yellow">Jhalar Bhai lagayega.</span>
-        </h2>
-        <p className="section-copy max-w-2xl text-white/70">
-          Festival of lights, lekin bijli ka jugaad nahi. Decoration lights,
-          jhalar, balcony lighting, extra point ya jo lights fuse ho gayi —
-          safe fitting, clear labour, doorstep.
-        </p>
-
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-          {JOBS.map(({ icon: Icon, title, text }) => (
-            <li
-              key={title}
-              className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
+    <Section
+      id="diwali"
+      className="diwali-campaign relative overflow-hidden bg-[#07182C] text-white"
+    >
+      <div className="diwali-sparkle pointer-events-none absolute inset-0" aria-hidden />
+      <div className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        <div className="diwali-fade">
+          <p className="inline-flex rounded-full border border-[#F4B942]/35 bg-[#FDE245]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#FDE245]">
+            Diwali 2026 · Kanpur • Shuklaganj • Unnao
+          </p>
+          <h2 className="mt-5 font-display text-[2rem] font-extrabold leading-[1.08] tracking-tight sm:text-5xl">
+            Is Diwali, Ghar Chamkega.
+            <span className="mt-2 block text-[#FDE245]">BijliBhai Sambhalega.</span>
+          </h2>
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-[#FFF8E7]/75 sm:text-lg">
+            Jhalar, fairy lights, balcony lighting, LED strips aur decorative
+            lights installation — ab bina tension ke.
+          </p>
+          <p className="mt-3 text-sm text-[#FFF8E7]/55">
+            Labour existing Light / extra-point rates se. Material alag ho sakta
+            hai. Availability confirm karke batate hain — guaranteed slot nahi.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <WhatsAppCta
+              href={diwaliWhatsAppHref()}
+              event="diwali_booking_started"
+              label="Diwali Lighting Book Karein"
+              className="w-full sm:w-auto"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow text-navy-950">
-                <Icon className="h-5 w-5" aria-hidden />
-              </div>
-              <div>
-                <p className="font-display text-base font-semibold">{title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-white/65">{text}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        <p className="mt-6 text-sm text-white/55">
-          Labour Light / extra-point rates se start. Jhalar-lights material alag
-          ho sakta hai. Sparking ho to touch mat karo — Bhai ko bulao.
-        </p>
-
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <CallCta />
-          <WhatsAppCta href={DIWALI_WHATSAPP_HREF} label="Diwali WhatsApp">
-            Diwali Lights WhatsApp
-          </WhatsAppCta>
+              Diwali Lighting Book Karein
+            </WhatsAppCta>
+            <OutlineCta
+              href={PRICE_WHATSAPP_HREF}
+              event="diwali_whatsapp_clicked"
+              label="WhatsApp Par Rate Puchhein"
+              className="w-full sm:w-auto"
+            >
+              WhatsApp Par Rate Puchhein
+            </OutlineCta>
+          </div>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <CallCta
+              event="diwali_call_clicked"
+              label="Diwali campaign call"
+              className="w-full sm:w-auto"
+            />
+            <Link
+              to={DIWALI_CAMPAIGN.path}
+              onClick={() =>
+                trackCta({
+                  event: "diwali_banner_clicked",
+                  label: "Homepage lighting page",
+                  href: DIWALI_CAMPAIGN.path,
+                })
+              }
+              className="text-sm font-semibold text-[#FDE245] hover:underline"
+            >
+              Lighting services dekhein →
+            </Link>
+          </div>
+        </div>
+        <div className="diwali-fade">
+          <FestiveHomeVisual compact />
         </div>
       </div>
     </Section>

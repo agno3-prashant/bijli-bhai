@@ -1,5 +1,6 @@
 import { Home, ShieldCheck, Sparkles, Wallet } from "lucide-react";
 
+import { isDiwaliCampaignEnabled } from "@/campaigns/diwali/config";
 import { AppointmentForm } from "@/components/home/AppointmentForm";
 import { CallCta, WhatsAppCta } from "@/components/cta/CtaLinks";
 
@@ -21,17 +22,21 @@ export function Hero() {
           <p className="mb-3 inline-flex rounded-full border border-yellow/25 bg-yellow/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-yellow">
             Kanpur • Shuklaganj • Unnao
           </p>
-          <p className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold tracking-wide text-white/80">
-            Diwali on: jhalar • fairy lights • extra point
-          </p>
+          {isDiwaliCampaignEnabled() ? (
+            <p className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold tracking-wide text-white/80">
+              Diwali on: jhalar • fairy lights • extra point
+            </p>
+          ) : null}
           <h1 className="font-display text-[2.15rem] font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
             Bijli ka kaam?
             <span className="mt-1 block text-yellow">Bhai ko bulao.</span>
           </h1>
           <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70 sm:text-lg">
-            Switch, fan, MCB, wiring, inverter, Diwali jhalar / decoration
-            lights — trusted local electrician across Kanpur, Shuklaganj &
-            Unnao.
+            Switch, fan, MCB, wiring, inverter
+            {isDiwaliCampaignEnabled()
+              ? ", Diwali jhalar / decoration lights"
+              : ""}{" "}
+            — trusted local electrician across Kanpur, Shuklaganj & Unnao.
           </p>
           <p className="mt-3 text-sm font-medium text-white/80">
             Clear pricing • Quick response • Doorstep service
@@ -57,7 +62,10 @@ export function Hero() {
 
         <div className="animate-fade-up lg:pl-2">
           <div className="mb-4 hidden flex-wrap gap-2 lg:flex">
-            {["Diwali Jhalar", "Fan Installation", "MCB Repair", "Wiring"].map(
+            {(isDiwaliCampaignEnabled()
+              ? ["Diwali Jhalar", "Fan Installation", "MCB Repair", "Wiring"]
+              : ["Fan Installation", "MCB Repair", "Wiring", "Inspection"]
+            ).map(
               (label) => (
                 <span
                   key={label}

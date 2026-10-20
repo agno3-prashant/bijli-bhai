@@ -68,15 +68,20 @@ export function CallCta({
   className,
   label = "Electrician Bulayein",
   children = "Electrician Bulayein",
+  event,
 }: {
   className?: string;
   label?: string;
   children?: ReactNode;
+  event?: CtaEvent;
 }) {
   return (
     <TrackedLink
       href={CALL_HREF}
-      event={label.toLowerCase().includes("partner") ? "partner_clicked" : "call_clicked"}
+      event={
+        event ??
+        (label.toLowerCase().includes("partner") ? "partner_clicked" : "call_clicked")
+      }
       label={label}
       className={cn(yellowCta, className)}
     >

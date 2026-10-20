@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+import { isDiwaliCampaignEnabled } from "@/campaigns/diwali/config";
 import { Logo } from "@/components/brand/Logo";
 import { WhatsAppGlyph } from "@/components/cta/CtaLinks";
 import {
@@ -66,7 +67,10 @@ export function SiteFooter({ compact = false }: { compact?: boolean }) {
             Links
           </h2>
           <ul className="mt-4 space-y-2">
-            {FOOTER_LINKS.map((link) => (
+            {(isDiwaliCampaignEnabled()
+              ? [{ href: "/diwali-lighting", label: "Diwali Lights" }, ...FOOTER_LINKS]
+              : FOOTER_LINKS
+            ).map((link) => (
               <li key={link.href}>
                 <Link
                   to={link.href}

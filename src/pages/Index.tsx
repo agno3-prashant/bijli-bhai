@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import { isDiwaliCampaignEnabled } from "@/campaigns/diwali/config";
 import { Coverage } from "@/components/home/Coverage";
 import { DiwaliLights } from "@/components/home/DiwaliLights";
 import { Emergency } from "@/components/home/Emergency";
@@ -36,7 +37,7 @@ const Index = () => {
   return (
     <SiteShell>
       <Hero />
-      <DiwaliLights />
+      {isDiwaliCampaignEnabled() ? <DiwaliLights /> : null}
       <Services />
       <Problems />
       <HowItWorks />

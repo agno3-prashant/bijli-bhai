@@ -1,6 +1,6 @@
 import { WhatsAppCta } from "@/components/cta/CtaLinks";
 import { Section } from "@/components/layout/Section";
-import { PRICE_EXAMPLES } from "@/data/site";
+import { getPriceExamples } from "@/data/site";
 import { PRICE_WHATSAPP_HREF } from "@/lib/contact";
 
 export function Pricing() {
@@ -24,7 +24,7 @@ export function Pricing() {
             </WhatsAppCta>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {PRICE_EXAMPLES.map((item) => (
+            {getPriceExamples().map((item) => (
               <div
                 key={item.label}
                 className="rounded-2xl bg-navy-950 px-4 py-4 text-white"

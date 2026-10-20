@@ -1,7 +1,7 @@
+import { isDiwaliCampaignEnabled } from "@/campaigns/diwali/config";
 import { serviceWhatsAppMessage, whatsappHref } from "@/lib/contact";
 
-export const NAV_LINKS = [
-  { href: "/#diwali", label: "Diwali Lights" },
+export const CORE_NAV_LINKS = [
   { href: "/#services", label: "Services" },
   { href: "/#pricing", label: "Pricing" },
   { href: "/#how-it-works", label: "How It Works" },
@@ -9,6 +9,16 @@ export const NAV_LINKS = [
   { href: "/#contact", label: "Contact" },
   { href: "/#partner", label: "Partner" },
 ] as const;
+
+export function getNavLinks() {
+  if (!isDiwaliCampaignEnabled()) return [...CORE_NAV_LINKS];
+  return [
+    { href: "/diwali-lighting", label: "Diwali Lights" },
+    ...CORE_NAV_LINKS,
+  ];
+}
+
+export const NAV_LINKS = CORE_NAV_LINKS;
 
 export const SERVICES = [
   {
@@ -230,3 +240,25 @@ export const FAQS = [
     a: "Haan. Jhalar, fairy lights, balcony lights, extra point aur light repair Diwali se pehle coordinate hota hai. Labour Light / Wiring rates se start. Lights/jhalar material usually alag. Expected cost kaam se pehle clear ki jayegi.",
   },
 ] as const;
+
+export function getCatalogueServices() {
+  if (isDiwaliCampaignEnabled()) return [...SERVICES];
+  return SERVICES.filter((service) => service.slug !== "diwali-lights");
+}
+
+export function getProblems() {
+  if (isDiwaliCampaignEnabled()) return [...PROBLEMS];
+  return PROBLEMS.filter(
+    (problem) => !/diwali|jhalar|decoration lights/i.test(problem.title),
+  );
+}
+
+export function getPriceExamples() {
+  if (isDiwaliCampaignEnabled()) return [...PRICE_EXAMPLES];
+  return PRICE_EXAMPLES.filter((item) => !/diwali/i.test(item.label));
+}
+
+export function getFaqs() {
+  if (isDiwaliCampaignEnabled()) return [...FAQS];
+  return FAQS.filter((item) => !/diwali/i.test(item.q));
+}

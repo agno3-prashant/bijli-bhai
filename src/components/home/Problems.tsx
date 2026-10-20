@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { Section } from "@/components/layout/Section";
-import { PROBLEMS } from "@/data/site";
+import { getProblems } from "@/data/site";
 import { trackCta } from "@/lib/contact";
 
 export function Problems() {
@@ -12,7 +12,7 @@ export function Problems() {
         Problem select karein. WhatsApp par pehle se typed message khul jayega.
       </p>
       <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {PROBLEMS.map((problem) => (
+        {getProblems().map((problem) => (
           <a
             key={problem.title}
             href={problem.href}

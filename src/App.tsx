@@ -9,6 +9,7 @@ import Terms from "./pages/Terms";
 import Confirmation from "./pages/Confirmation";
 import Review from "./pages/Review";
 import Reviews from "./pages/Reviews";
+import DiwaliLighting from "./pages/DiwaliLighting";
 import NotFound from "./pages/NotFound";
 import { SeoLanding } from "./pages/SeoLanding";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/thank-you" element={<Confirmation />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/review" element={<Review />} />
+          <Route path="/diwali-lighting" element={<DiwaliLighting />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

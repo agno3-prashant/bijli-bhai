@@ -2,11 +2,16 @@ import { type FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 
+import { isDiwaliCampaignEnabled } from "@/campaigns/diwali/config";
+import { diwaliBookingMessage } from "@/campaigns/diwali/messages";
 import { trackCta, whatsappHref } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const AREAS = ["Kanpur", "Shuklaganj", "Unnao", "Other"] as const;
-const ISSUES = ["Diwali Lights", "Switch", "Fan", "MCB", "Wiring", "Inverter", "Other"] as const;
+const CORE_ISSUES = ["Switch", "Fan", "MCB", "Wiring", "Inverter", "Other"] as const;
+const ISSUES = isDiwaliCampaignEnabled()
+  ? (["Diwali Lights", ...CORE_ISSUES] as const)
+  : CORE_ISSUES;
 
 function digitsOnly(value: string) {
   return value.replace(/\D/g, "").slice(0, 10);
@@ -57,7 +62,16 @@ export function AppointmentForm({ className }: { className?: string }) {
     }
 
     setError("");
-    const message = `Namaste BijliBhai, appointment book karna hai. Mera number +91 ${number} hai.
+    const isDiwali = issue === "Diwali Lights";
+    const message = isDiwali
+      ? `${diwaliBookingMessage({
+          property: "",
+          service: "Diwali lighting",
+          location: area,
+        })}
+
+Mobile: +91 ${number}`
+      : `Namaste BijliBhai, appointment book karna hai. Mera number +91 ${number} hai.
 
 Location: ${area}
 Problem: ${issue}
@@ -68,6 +82,13 @@ Preferred Time:`;
       label: `Book appointment ${area}`,
       href: "/confirmation",
     });
+    if (isDiwali) {
+      trackCta({
+        event: "diwali_booking_started",
+        label: `Hero appointment ${area}`,
+        href: "/confirmation",
+      });
+    }
 
     window.open(whatsappHref(message), "_blank", "noopener,noreferrer");
     navigate("/confirmation");
