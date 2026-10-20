@@ -65,6 +65,14 @@ Problem:
 Preferred Time:`,
 );
 
+export const DIWALI_WHATSAPP_HREF = whatsappHref(
+  `Namaste BijliBhai, Diwali ke liye lighting / jhalar ka kaam hai.
+
+Location:
+Problem: jhalar / fairy lights / extra point / light repair
+Preferred Time:`,
+);
+
 export function serviceWhatsAppMessage(serviceName: string) {
   return `Namaste BijliBhai, mujhe ${serviceName} service chahiye.
 

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { Coverage } from "@/components/home/Coverage";
+import { DiwaliLights } from "@/components/home/DiwaliLights";
 import { Emergency } from "@/components/home/Emergency";
 import { Faq } from "@/components/home/Faq";
 import { FinalCta } from "@/components/home/FinalCta";
@@ -35,6 +36,7 @@ const Index = () => {
   return (
     <SiteShell>
       <Hero />
+      <DiwaliLights />
       <Services />
       <Problems />
       <HowItWorks />

@@ -145,6 +145,18 @@
   .chip {
     @apply rounded-full px-3.5 py-2 text-sm font-semibold transition;
   }
+
+  .diwali-string {
+    @apply pointer-events-none absolute inset-x-0 top-0 h-1.5;
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      #ffd400 0 3px,
+      transparent 4px
+    );
+    background-size: 22px 8px;
+    background-repeat: repeat-x;
+    opacity: 0.85;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

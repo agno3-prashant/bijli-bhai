@@ -10,6 +10,9 @@ export function FinalCta() {
           <span className="mt-2 block text-yellow">Bhai ko bulao.</span>
         </h2>
         <p className="mt-4 text-lg text-white/65">Kanpur • Shuklaganj • Unnao</p>
+        <p className="mt-2 text-sm text-yellow/80">
+          Diwali jhalar pending hai? Abhi bulao — festival se pehle.
+        </p>
         <p className="mt-4 flex flex-col items-center gap-1 text-sm text-white/50 sm:flex-row sm:justify-center sm:gap-4">
           {CALL_NUMBERS.map((number) => (
             <a

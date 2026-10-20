@@ -9,6 +9,7 @@ export const REVIEW_SERVICES = [
   "Inverter",
   "Inspection",
   "Emergency",
+  "Diwali Lights / Jhalar",
   "Other",
 ] as const;
 
@@ -31,6 +32,7 @@ export type PublicReview = {
   rating: number;
   review_text: string;
   created_at: string;
+  booking_id?: string | null;
 };
 
 export type ReviewDraft = {

@@ -5,6 +5,7 @@ import {
   Plug,
   Power,
   Search,
+  Sparkles,
   Wind,
   Wrench,
 } from "lucide-react";
@@ -24,6 +25,7 @@ const ICONS: Record<string, LucideIcon> = {
   inverter: Battery,
   inspection: Search,
   emergency: AlertTriangle,
+  "diwali-lights": Sparkles,
 };
 
 export function Services() {
@@ -46,7 +48,11 @@ export function Services() {
           return (
             <article
               key={service.slug}
-              className="surface-card flex h-full flex-col p-5 hover:-translate-y-1 hover:shadow-card-hover"
+              className={`surface-card flex h-full flex-col p-5 hover:-translate-y-1 hover:shadow-card-hover ${
+                service.slug === "diwali-lights"
+                  ? "border-yellow/50 ring-1 ring-yellow/30"
+                  : ""
+              }`}
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow/20 text-navy-950">
                 <Icon className="h-5 w-5" aria-hidden />

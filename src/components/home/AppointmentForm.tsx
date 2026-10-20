@@ -6,7 +6,7 @@ import { trackCta, whatsappHref } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const AREAS = ["Kanpur", "Shuklaganj", "Unnao", "Other"] as const;
-const ISSUES = ["Switch", "Fan", "MCB", "Wiring", "Inverter", "Other"] as const;
+const ISSUES = ["Diwali Lights", "Switch", "Fan", "MCB", "Wiring", "Inverter", "Other"] as const;
 
 function digitsOnly(value: string) {
   return value.replace(/\D/g, "").slice(0, 10);

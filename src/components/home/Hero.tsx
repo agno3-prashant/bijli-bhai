@@ -18,16 +18,20 @@ export function Hero() {
 
       <div className="page-wrap relative grid items-center gap-12 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20">
         <div className="animate-fade-up">
-          <p className="mb-5 inline-flex rounded-full border border-yellow/25 bg-yellow/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-yellow">
+          <p className="mb-3 inline-flex rounded-full border border-yellow/25 bg-yellow/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-yellow">
             Kanpur • Shuklaganj • Unnao
+          </p>
+          <p className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold tracking-wide text-white/80">
+            Diwali on: jhalar • fairy lights • extra point
           </p>
           <h1 className="font-display text-[2.15rem] font-extrabold leading-[1.06] tracking-tight sm:text-6xl">
             Bijli ka kaam?
             <span className="mt-1 block text-yellow">Bhai ko bulao.</span>
           </h1>
           <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-white/70 sm:text-lg">
-            Switch, fan, MCB, wiring, inverter aur electrical repair ke liye
-            trusted local electrician service across Kanpur, Shuklaganj & Unnao.
+            Switch, fan, MCB, wiring, inverter, Diwali jhalar / decoration
+            lights — trusted local electrician across Kanpur, Shuklaganj &
+            Unnao.
           </p>
           <p className="mt-3 text-sm font-medium text-white/80">
             Clear pricing • Quick response • Doorstep service
@@ -53,7 +57,7 @@ export function Hero() {
 
         <div className="animate-fade-up lg:pl-2">
           <div className="mb-4 hidden flex-wrap gap-2 lg:flex">
-            {["Fan Installation", "MCB Repair", "Switch & Socket", "Wiring"].map(
+            {["Diwali Jhalar", "Fan Installation", "MCB Repair", "Wiring"].map(
               (label) => (
                 <span
                   key={label}

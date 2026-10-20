@@ -1,6 +1,7 @@
 import { serviceWhatsAppMessage, whatsappHref } from "@/lib/contact";
 
 export const NAV_LINKS = [
+  { href: "/#diwali", label: "Diwali Lights" },
   { href: "/#services", label: "Services" },
   { href: "/#pricing", label: "Pricing" },
   { href: "/#how-it-works", label: "How It Works" },
@@ -30,6 +31,14 @@ export const SERVICES = [
     price: "Starting ₹149",
     description: "Bulb, tube, panel light aur fitting ka kaam.",
     message: serviceWhatsAppMessage("Light"),
+  },
+  {
+    slug: "diwali-lights",
+    title: "Diwali Jhalar & Lights",
+    price: "Starting ₹149",
+    description:
+      "Jhalar, fairy lights, balcony lights — lagwana, theek karwana ya extra point.",
+    message: serviceWhatsAppMessage("Diwali jhalar / decoration lights"),
   },
   {
     slug: "mcb-db",
@@ -84,6 +93,18 @@ export const PROBLEMS = [
   {
     title: "Light fitting chahiye?",
     href: whatsappHref(serviceWhatsAppMessage("Light")),
+  },
+  {
+    title: "Diwali pe jhalar lagwani hai?",
+    href: whatsappHref(serviceWhatsAppMessage("Diwali jhalar / decoration lights")),
+  },
+  {
+    title: "Decoration lights kaam nahi kar rahi?",
+    href: whatsappHref(serviceWhatsAppMessage("Diwali light repair")),
+  },
+  {
+    title: "Jhalar ke liye extra point chahiye?",
+    href: whatsappHref(serviceWhatsAppMessage("Wiring")),
   },
   {
     title: "Short circuit ka doubt hai?",
@@ -155,6 +176,7 @@ export const PRICE_EXAMPLES = [
   { label: "MCB work", value: "₹199 se" },
   { label: "New electrical point", value: "₹499 se" },
   { label: "Emergency visit", value: "₹399 se" },
+  { label: "Diwali jhalar / lights", value: "₹149 se" },
 ] as const;
 
 export const PRIMARY_AREAS = [
@@ -202,5 +224,9 @@ export const FAQS = [
   {
     q: "Payment kaise hoga?",
     a: "Initial launch me cash ya direct UPI coordination supported ho sakta hai.",
+  },
+  {
+    q: "Diwali jhalar aur decoration lights bhi lagwa sakte hain?",
+    a: "Haan. Jhalar, fairy lights, balcony lights, extra point aur light repair Diwali se pehle coordinate hota hai. Labour Light / Wiring rates se start. Lights/jhalar material usually alag. Expected cost kaam se pehle clear ki jayegi.",
   },
 ] as const;
